@@ -16,9 +16,13 @@ public class VerticalBounceDrop extends Drop {
 		else
 			ypos = ypos - yvel;
 
-		if (ypos == 0)
+		if (ypos < 0){
 			bFalling = true;
-		else if(ypos == height)
+			size = size*2;
+		}
+		else if(ypos > height){
 			bFalling = false;
+			size = size/2;
+		}
 	}
 }

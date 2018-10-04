@@ -13,12 +13,14 @@ public class HalfVerticalBounceDrop extends Drop {
 
 	public void move(int width, int height) {
 		
+		//intialise
 		if(heightLimit == -10)
 		{
 			heightCounter = height;
 			heightLimit = height/2;
 		}
 
+		//check direction
 		if(bFalling)
 			ypos = ypos + yvel;
 		else
@@ -27,7 +29,7 @@ public class HalfVerticalBounceDrop extends Drop {
 		if (ypos < heightLimit && !bFalling){
 			bFalling = true;
 		}
-		else if(ypos == height && bFalling){
+		else if(ypos > height && bFalling){
 			bFalling = false;
 			heightCounter = heightCounter/2;
 			heightLimit = height - heightCounter;
